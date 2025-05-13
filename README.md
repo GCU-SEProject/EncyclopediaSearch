@@ -1,2 +1,0 @@
-# EncyclopediaSearch
-Encyclopedia Search MicroServices
