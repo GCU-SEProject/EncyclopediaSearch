@@ -1,5 +1,6 @@
 package com.example.EncyclopediaSearch.vo;
 
+import jdk.jshell.Snippet;
 import lombok.Data;
 
 import java.util.List;
@@ -14,10 +15,16 @@ public class EncyclopediaSearchResponse {
 
     @Data
     public static class Item {
-        private String title; // 제목
-        private String link; // 상세 링크
-        private String description; // 요약 설명
-        private String thumbnail; // 섬네일 URL
+        private Snippet snippet;
+    }
+
+
+    @Data
+    public static class Snippet {
+        private String title;
+        private String link;
+        private String description;
+        private String thumbnail;
     }
 
 }
