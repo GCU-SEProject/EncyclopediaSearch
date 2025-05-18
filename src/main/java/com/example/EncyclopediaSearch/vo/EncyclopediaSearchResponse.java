@@ -1,6 +1,5 @@
 package com.example.EncyclopediaSearch.vo;
 
-import jdk.jshell.Snippet;
 import lombok.Data;
 
 import java.util.List;
