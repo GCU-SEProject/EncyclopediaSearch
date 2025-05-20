@@ -5,9 +5,7 @@ server:
 
 spring:
   application:
-    name: EncyclopediaSearch
-  config:
-    import: optional:config/application-secret.yml
+    name: encyclopedia-service
 
 naver:
   api:
