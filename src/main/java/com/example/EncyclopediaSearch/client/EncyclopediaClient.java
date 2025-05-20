@@ -3,12 +3,14 @@ package com.example.EncyclopediaSearch.client;
 
 import com.example.EncyclopediaSearch.exception.EncyclopediaApiException;
 import com.example.EncyclopediaSearch.vo.EncyclopediaSearchResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+@Slf4j
 @Component
 public class EncyclopediaClient {
     private final WebClient encyclopediaWebClient;
@@ -19,7 +21,7 @@ public class EncyclopediaClient {
     public EncyclopediaClient(WebClient encyclopediaWebClient,
                          @Value("${naver.api.client-id}") String clientId,
                          @Value("${naver.api.client-secret}") String clientSecret,
-                         @Value("${encyclopedia.api.default-display:10}") int maxResults) {
+                         @Value("${encyclopedia.api.default-display:1}") int maxResults) {
         this.encyclopediaWebClient = encyclopediaWebClient;
         this.clientId = clientId;
         this.clientSecret = clientSecret;
@@ -29,7 +31,7 @@ public class EncyclopediaClient {
     public Mono<EncyclopediaSearchResponse> searchEncyclopedias(String keyword) {
         return encyclopediaWebClient.get()
                 .uri(uriBuilder -> uriBuilder
-                        .path("/v1/search/encyc.json")
+                        .path("/encyc.json")
                         .queryParam("query", keyword)
                         .queryParam("display", maxResults)
                         .build()
