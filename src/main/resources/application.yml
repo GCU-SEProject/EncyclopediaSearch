@@ -1,0 +1,23 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /encyclopedia-service
+
+spring:
+  application:
+    name=EncyclopediaSearch
+  config:
+    import: optional:config/application-secret.yml
+
+naver:
+  api:
+    base-url: https://openapi.naver.com/v1/search
+    client-id: X56LS44My6N59TADrp8f
+    client-secret: zfpsGIXmdf
+    default-display: 1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
